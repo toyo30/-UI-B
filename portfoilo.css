@@ -9,9 +9,10 @@ html {
 
 /* reset */
 
-body, div, h1, h2, h3, h4, p, 
-a, ul, ol, li, article,footer, 
-header, section, input, img{
+body, div, h1, h2, h3, h4, 
+h5, h6, p, a, ul, ol, li, 
+article,footer, header, 
+section, input, img{
     margin:0; 
     padding:0; 
     border: 0;
@@ -82,7 +83,6 @@ a:active, a:hover, a:focus {
     left: 0;
 
 }
-
 
 
 
@@ -310,6 +310,8 @@ a:active, a:hover, a:focus {
     border-bottom: 1px solid #a1a5ad;
 }
 
+
+
 .faq_question {
     width: 850px;
     min-height: 28px;
@@ -319,9 +321,17 @@ a:active, a:hover, a:focus {
     word-break: break-all;
     line-height: 28px;
     padding: 20px 40px 20px 40px;
-
 }
 
+.btn_point {
+    position: absolute;
+    width: 70px;
+    height: 100%;
+    top:0;
+    right: 0;
+    cursor:pointer;
+    z-index: 9000;
+}
 
 .question_logo {
     position: absolute;
@@ -333,12 +343,23 @@ a:active, a:hover, a:focus {
     left: 27px;
 }
 
-.btn_click {
+.btn_open {
     position: absolute;
     width: 23px;
     height: 12px;
     background: url(../image/icon_arrow_down.gif) no-repeat center;
     content: '';
+    top: 29px;
+    right: 23px;
+    border: 0;
+}
+
+.btn_close {
+    display: none;
+    position: absolute;
+    width: 23px;
+    height: 12px;
+    background: url(../image/icon_arrow_up.gif) no-repeat center;
     top: 29px;
     right: 23px;
     border: 0;
@@ -372,30 +393,27 @@ a:active, a:hover, a:focus {
     white-space:pre-wrap;
 }
 
-.btn_point {
-    position: absolute;
-    width: 70px;
-    height: 100%;
-    top:0;
-    right: 0;
-    cursor:pointer;
-    z-index: 9000;
-}
 
 #open_btn1:checked ~ .faq_answer,
 #open_btn2:checked ~ .faq_answer,
 #open_btn3:checked ~ .faq_answer,
 #open_btn4:checked ~ .faq_answer,
-#open_btn5:checked ~ .faq_answer {
-    display: block; 
+#open_btn5:checked ~ .faq_answer,
+#open_btn1:checked ~ .faq_question .btn_close,
+#open_btn2:checked ~ .faq_question .btn_close,
+#open_btn3:checked ~ .faq_question .btn_close,
+#open_btn4:checked ~ .faq_question .btn_close,
+#open_btn5:checked ~ .faq_question .btn_close {
+    display: block;
 }
 
-#open_btn1:checked ~ .faq_question .btn_click,
-#open_btn2:checked ~ .faq_question .btn_click,
-#open_btn3:checked ~ .faq_question .btn_click,
-#open_btn4:checked ~ .faq_question .btn_click,
-#open_btn5:checked ~ .faq_question .btn_click {
-    background:url(../image/icon_arrow_up.gif) no-repeat center;
+
+#open_btn1:checked ~ .faq_question .btn_open,
+#open_btn2:checked ~ .faq_question .btn_open,
+#open_btn3:checked ~ .faq_question .btn_open,
+#open_btn4:checked ~ .faq_question .btn_open,
+#open_btn5:checked ~ .faq_question .btn_open {
+    display: none;
 } 
 
 
@@ -419,7 +437,6 @@ a:active, a:hover, a:focus {
 .footer_box{
     width: 100%;
     height: 80px;
-    margin: 0 auto;
     line-height: 80px;
     background: #e0e4eb;
     font-size: 18px;
@@ -429,6 +446,5 @@ a:active, a:hover, a:focus {
 .copyright_text {
     width: 300px;
     margin: 0 auto;
-    font-size: 18px;
     text-align: center;
 }
